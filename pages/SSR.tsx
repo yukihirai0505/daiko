@@ -1,10 +1,10 @@
 import * as React from 'react'
-import {Layout} from '../src/components/Layout'
+import {AppWithAuthentication} from '../src/components/Layout'
 
 const SSR: React.NextFunctionComponent<Props> = props =>
-  <Layout>
+  <AppWithAuthentication>
     {props.name}
-  </Layout>
+  </AppWithAuthentication>
 
 SSR.getInitialProps = async (context) => {
   const props = {
@@ -23,6 +23,7 @@ export default SSR
 interface Props {
   name
 }
+
 async function mockFetchName() {
   return '"next.js-typescript-starter-kit" from server'
 }

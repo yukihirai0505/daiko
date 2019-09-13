@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import Link from 'next/link'
+import * as Routes from '../constants/routes'
+import { auth } from '../firebase'
 
-export const Nav: React.FunctionComponent = props => {
+const Nav = ({ authUser }) => {
   const [isNavOpen, setNavOpen] = useState(false)
   return (<nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
     <div className="flex items-center flex-shrink-0 text-white mr-6">
-      <span className="font-semibold text-xl tracking-tight"><Link href='/'><a>daiko</a></Link></span>
+      <span className="font-semibold text-xl tracking-tight"><Link href={Routes.LANDING}><a>daiko</a></Link></span>
     </div>
     <div className="block lg:hidden">
       <button
@@ -18,17 +21,27 @@ export const Nav: React.FunctionComponent = props => {
     </div>
     <div className={`${isNavOpen ? 'block' : 'hidden'} w-full flex-grow lg:flex lg:items-center lg:w-auto`}>
       <div className="text-sm lg:flex-grow">
-        <a href="/SSR" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+        <a href={Routes.SSR} className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
           SSR
         </a>
-        <a href="/Form" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+        <a href={Routes.Form} className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
           Form
         </a>
       </div>
       <div>
         <a href="#"
-           className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download</a>
+           className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
+           onClick={authUser ? auth.doSignOut : auth.twitterSignIn}
+        >
+          {authUser ? 'Sign Out' : 'Sign In'}
+        </a>
       </div>
     </div>
   </nav>)
 }
+
+const mapStateToProps = (state) => ({
+  authUser: state.sessionState.authUser,
+})
+
+export default connect(mapStateToProps)(Nav)

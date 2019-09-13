@@ -3,15 +3,18 @@ import { Header } from './Header'
 import { Footer } from './Footer'
 import Head from 'next/head'
 import './Layout.css'
+import { compose } from 'recompose'
 
-export const Layout: React.FunctionComponent = props => (
+import { withAuthentication, withAuthorization } from './Session'
+
+const Layout: React.FunctionComponent = props => (
   <div id="layout">
     {/*language=PostCSS*/}
     <style jsx global>
       {`
-        #layout {
+          #layout {
           //background-color: darkolivegreen;
-        }
+          }
       `}
     </style>
     <Head>
@@ -20,10 +23,20 @@ export const Layout: React.FunctionComponent = props => (
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
     </Head>
-    <Header />
+    <Header/>
     <main>
       {props.children}
     </main>
-    <Footer />
+    <Footer/>
   </div>
 )
+
+const AppWithAuthentication = compose(
+  withAuthentication,
+  withAuthorization(false),
+)(Layout)
+const AppWithAuthorization = compose(
+  withAuthentication,
+  withAuthorization(true),
+)(Layout)
+export { AppWithAuthentication, AppWithAuthorization }
