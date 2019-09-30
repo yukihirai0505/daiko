@@ -1,4 +1,7 @@
 import * as React from 'react'
+import Link from 'next/link'
+import Routes from '../../src/constants/routes'
+import { auth } from '../firebase'
 
 export default props => (
   <div style={{ height: '1350px' }}>
@@ -28,25 +31,34 @@ export default props => (
           <div className="container mx-auto flex flex-row sm:items-center xl:pb-16 xl:px-0 px-4">
             <div className="w-1/2 text-white flex flex-col">
               <h1 className="sm:text-5xl text-xl font-weight-bolder mt-8 md:mt-0 lg:mt-0 sm:mb-4">
-                Best app landin page for Apps Downloads.
+                daiko
               </h1>
               <h2 className="sm:text-2xl text-base mb-2">
-                Tailwind landing app theme.
+                SNSで手軽に代行依頼/請負ができるサービス
               </h2>
-              <p className="text-xs sm:text-base">
-                This is your text under h1 and h2. Write your main text
-                promotional here.
-              </p>
-              <form className="xl:mt-4 mt-8 flex hidden xl:flex">
-                <input
-                  className="rounded-l-full p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
-                  placeholder="your@mail.com"
-                />
-                <button className="px-8 rounded-r-full bg-yellow-400  text-gray-800 font-bold p-4 uppercase border-yellow-500 border-t border-b border-r">
-                  Subscribe
+              <div className="flex items-center justify-between">
+                <button
+                  className="text-white font-bold border border-white hover:border-transparent hover:text-teal-500 hover:bg-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="button"
+                  onClick={() => auth.twitterSignIn()}
+                >
+                  代行作成
                 </button>
-              </form>
-              <p className="text-xs sm:block hidden">* Legal text</p>
+              </div>
+              {/*<p className="text-xs sm:text-base">*/}
+              {/*  This is your text under h1 and h2. Write your main text*/}
+              {/*  promotional here.*/}
+              {/*</p>*/}
+              {/*<form className="xl:mt-4 mt-8 flex hidden xl:flex">*/}
+              {/*  <input*/}
+              {/*    className="rounded-l-full p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"*/}
+              {/*    placeholder="your@mail.com"*/}
+              {/*  />*/}
+              {/*  <button className="px-8 rounded-r-full bg-yellow-400  text-gray-800 font-bold p-4 uppercase border-yellow-500 border-t border-b border-r">*/}
+              {/*    Subscribe*/}
+              {/*  </button>*/}
+              {/*</form>*/}
+              {/*<p className="text-xs sm:block hidden">* Legal text</p>*/}
             </div>
             <div className="w-1/2 xl:pt-8 xl:items-center flex justify-end">
               <img
@@ -60,15 +72,15 @@ export default props => (
       </div>
       <div className="bg-white pb-8 w-full pt-8">
         <div className="container mx-auto">
-          <form className="flex xl:hidden p-2 w-full justify-center pb-16">
-            <input
-              className="rounded-l-full p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
-              placeholder="your@mail.com"
-            />
-            <button className="px-2 rounded-r-full bg-yellow-400 text-gray-800 font-bold p-4 uppercase border-yellow-500 border-t border-b border-r">
-              Subscribe
-            </button>
-          </form>
+          {/*<form className="flex xl:hidden p-2 w-full justify-center pb-16">*/}
+          {/*  <input*/}
+          {/*    className="rounded-l-full p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"*/}
+          {/*    placeholder="your@mail.com"*/}
+          {/*  />*/}
+          {/*  <button className="px-2 rounded-r-full bg-yellow-400 text-gray-800 font-bold p-4 uppercase border-yellow-500 border-t border-b border-r">*/}
+          {/*    Subscribe*/}
+          {/*  </button>*/}
+          {/*</form>*/}
           <div className="text-center w-full pb-16">
             <h3 className="uppercase text-gray-800">Why choose my app?</h3>
             <p className="sm:text-3xl text-2xl text-black-800 pt-4 xl:w-1/2 mx-auto">

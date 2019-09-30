@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   apiKey: 'AIzaSyAqt9wwmSEAy6gWVtfEoShhv-Xi-Nt1Q6U',
   authDomain: 'yabaiwebyasan-auth.firebaseapp.com',
   databaseURL: 'https://yabaiwebyasan-auth.firebaseio.com',

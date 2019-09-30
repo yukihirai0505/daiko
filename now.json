@@ -1,5 +1,12 @@
 {
   "version": 2,
   "name": "daiko",
-  "alias": "daiko.now.sh"
+  "alias": "daiko.now.sh",
+  "env": {
+    "MONGODB_ATLAS_URI": "@mongodb-atlas-uri",
+    "TWITTER_CONSUMER_KEY": "@twitter-consumer-key",
+    "TWITTER_SECRET": "@twitter-secret",
+    "TWITTER_ACCESS_TOKEN": "@twitter-access-token",
+    "TWITTER_USER_SECRET": "@twitter-user-secret"
+  }
 }

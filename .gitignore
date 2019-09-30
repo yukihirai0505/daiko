@@ -1,5 +1,7 @@
 # Custom
 
+.env
+src/credentials/server.js
 .idea
 
 ### https://raw.github.com/github/gitignore/499ae899e7b54e701e878759f73d9092302fd07a/Node.gitignore
