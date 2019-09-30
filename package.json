@@ -2,8 +2,8 @@
   "name": "daiko",
   "version": "0.0.1",
   "main": "index.js",
-  "repository": "https://github.com/deptno/next.js-typescript-starter-kit",
-  "author": "Bonggyun Lee <deptno@gmail.com>",
+  "repository": "https://github.com/yukihirai0505/daiko.git",
+  "author": "Yuki Hirai <yukihirai0505@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -11,7 +11,8 @@
     "build:dev": "next build",
     "build": "NODE_ENV=production next build",
     "export": "next export",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "now ."
   },
   "dependencies": {
     "firebase": "^6.6.1",

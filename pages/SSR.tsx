@@ -1,14 +1,13 @@
 import * as React from 'react'
-import {AppWithAuthentication} from '../src/components/Layout'
+import { AppWithAuthentication } from '../src/components/Layout'
 
-const SSR: React.NextFunctionComponent<Props> = props =>
-  <AppWithAuthentication>
-    {props.name}
-  </AppWithAuthentication>
+const SSR: React.NextFunctionComponent<Props> = props => (
+  <AppWithAuthentication>{props.name}</AppWithAuthentication>
+)
 
-SSR.getInitialProps = async (context) => {
+SSR.getInitialProps = async context => {
   const props = {
-    name: '"next.js-typescript-starter-kit" from client'
+    name: '"next.js-typescript-starter-kit" from client',
   }
   const server = !!context.req
 

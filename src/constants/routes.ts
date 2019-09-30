@@ -1,3 +1,5 @@
-export const LANDING = '/'
-export const SSR = '/SSR'
-export const Form = 'Form'
+export default {
+  TOP: '/',
+  NEW_DAIKO: '/daiko/create',
+  DAIKO_DETAIL: id => `/daiko/${id}`,
+}

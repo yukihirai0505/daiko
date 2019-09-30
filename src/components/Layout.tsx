@@ -12,9 +12,9 @@ const Layout: React.FunctionComponent = props => (
     {/*language=PostCSS*/}
     <style jsx global>
       {`
-          #layout {
+        #layout {
           //background-color: darkolivegreen;
-          }
+        }
       `}
     </style>
     <Head>
@@ -23,20 +23,18 @@ const Layout: React.FunctionComponent = props => (
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
     </Head>
-    <Header/>
-    <main>
-      {props.children}
-    </main>
-    <Footer/>
+    <Header />
+    <main>{props.children}</main>
+    <Footer />
   </div>
 )
 
 const AppWithAuthentication = compose(
   withAuthentication,
-  withAuthorization(false),
+  withAuthorization(false)
 )(Layout)
 const AppWithAuthorization = compose(
   withAuthentication,
-  withAuthorization(true),
+  withAuthorization(true)
 )(Layout)
 export { AppWithAuthentication, AppWithAuthorization }

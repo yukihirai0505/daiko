@@ -1,5 +1,5 @@
 import firebase from 'firebase/app'
-import { auth } from './firebase';
+import { auth } from './firebase'
 
 // Sign In
 export const twitterSignIn = async () => {
@@ -8,10 +8,7 @@ export const twitterSignIn = async () => {
     const provider = new firebase.auth.TwitterAuthProvider()
     await auth.signInWithPopup(provider)
   }
-
 }
 
 // Sign out
-export const doSignOut = () =>
-  auth.signOut();
-
+export const doSignOut = () => auth.signOut()
