@@ -82,9 +82,9 @@ export default props => (
           {/*  </button>*/}
           {/*</form>*/}
           <div className="text-center w-full pb-16">
-            <h3 className="uppercase text-gray-800">Why choose my app?</h3>
+            <h3 className="uppercase text-gray-800">代行サービスの決定版</h3>
             <p className="sm:text-3xl text-2xl text-black-800 pt-4 xl:w-1/2 mx-auto">
-              A simple, proven way to boost your team perfomance.
+              SNSで代行依頼！代行請負！を簡単にお願いできるサービス
             </p>
           </div>
           <div className="flex sm:flex-row flex-col w-full xl:mt-12 mb-12 xl:px-0 px-4">
@@ -108,16 +108,17 @@ export default props => (
                 </div>
                 <div className="w-5/6">
                   <h4 className="text-black items-center xl:text-2xl">
-                    One Platform
+                    たったの3ステップ
                   </h4>
                 </div>
               </div>
               <p>
-                <b className="font-normal text-blue-600">
-                  No more Mulitple Platforms.
-                </b>{' '}
-                Now it had see nunable uneasy. Drawings can followed by improved
-                out sociable not. Earnestly so do instantly pretended.
+                これだけ！
+                <ol>
+                  <li>1. SNS連携</li>
+                  <li>2. 代行作成</li>
+                  <li>3. SNSにシェア</li>
+                </ol>
               </p>
             </div>
             <div className="sm:w-1/3 mb-8 sm:mb-0 xl:pr-0 pr-2">
@@ -138,16 +139,12 @@ export default props => (
                 </div>
                 <div className="w-4/5">
                   <h4 className="text-black items-center xl:text-2xl">
-                    Communication
+                    イケてるシェア画像
                   </h4>
                 </div>
               </div>
               <p>
-                <b className="font-normal text-blue-600">
-                  No more Mulitple Platforms.
-                </b>{' '}
-                Now it had see nunable uneasy. Drawings can followed by improved
-                out sociable not. Earnestly so do instantly pretended.
+                SNSにシェアできるイケてるシェア画像を自動生成します。
               </p>
             </div>
             <div className="sm:w-1/3 mb-8 sm:mb-0 xl:pr-0 pr-2">
@@ -168,16 +165,12 @@ export default props => (
                 </div>
                 <div className="w-4/5">
                   <h4 className="text-black items-center xl:text-2xl">
-                    Project Management
+                    場所もチェック
                   </h4>
                 </div>
               </div>
               <p>
-                <b className="font-normal text-blue-600">
-                  No more Mulitple Platforms.
-                </b>{' '}
-                Now it had see nunable uneasy. Drawings can followed by improved
-                out sociable not. Earnestly so do instantly pretended.
+                代行作成では対応場所も入力することができます。
               </p>
             </div>
           </div>
