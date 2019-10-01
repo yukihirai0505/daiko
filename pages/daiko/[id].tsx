@@ -28,7 +28,7 @@ const DaikoDetail = props => {
         <div className="container mx-auto">
           <div className="text-center w-full pb-16">
             <div className="flex my-10">
-              <div className="bg-white w-1/2 m-auto border-1  border-dashed border-gray-100 shadow-md rounded-lg overflow-hidden">
+              <div className="bg-white w-1/2 xs:w-full m-auto border-1  border-dashed border-gray-100 shadow-md rounded-lg overflow-hidden">
                 <img
                   src={daiko.imageUrl}
                   alt=""
