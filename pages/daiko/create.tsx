@@ -4,6 +4,7 @@ import Router from 'next/router'
 import { AppWithAuthorization } from '../../src/components/Layout'
 import { connect } from 'react-redux'
 import { createNewDaiko } from '../../src/utils/api'
+import Link from 'next/link'
 
 const create = async (authUser) => {
   // TODO: real time form validation
@@ -90,6 +91,7 @@ const Create = ({ authUser }) => {
                 </div>
               )
             )}
+            <p className="text-sm text-gray-400 mb-5">* 作成することにより、<Link href={Routes.TERMS_OF_SERVICE}>「利用規約」</Link>に同意したとみなされます。</p>
             <div className="flex items-center justify-between">
               <button
                 className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
