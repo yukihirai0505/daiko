@@ -6,19 +6,23 @@ import { connect } from 'react-redux'
 import { createNewDaiko } from '../../src/utils/api'
 import Link from 'next/link'
 
-const create = async (authUser) => {
-  // TODO: real time form validation
-  // TODO: add privacy policy check
-  // TODO: add term-of-service
+const create = async (e, authUser) => {
+  e.preventDefault()
+  // show loading
+
   const idToken = await authUser.getIdToken()
   const form: any = document.getElementById('new-daiko-form')
-  const id = await createNewDaiko({
-    title: form.title.value,
-    body: form.body.value,
-    place: form.place.value,
-    idToken
-  })
-  Router.push(Routes.DAIKO_DETAIL(id))
+  const title = form.title.value
+  const body = form.body.value
+  if (title && body) {
+    const id = await createNewDaiko({
+      title,
+      body,
+      place: form.place.value,
+      idToken,
+    })
+    Router.push(Routes.DAIKO_DETAIL(id))
+  }
 }
 
 const formFields = [
@@ -27,6 +31,8 @@ const formFields = [
     text: 'タイトル',
     placeholder: 'ex) タピオカ代行',
     isText: false,
+    maxLength: 40,
+    required: true,
   },
   {
     id: 'body',
@@ -34,12 +40,16 @@ const formFields = [
     placeholder:
       'ex) あなたの代わりにタピオカの行列に並びます！/私の代わりにタピオカの行列に並んでください！',
     isText: true,
+    maxLength: 400,
+    required: true,
   },
   {
     id: 'place',
-    text: '場所(任意)',
+    text: '場所',
     placeholder: 'ex) 東京/原宿のタピオカ屋さん',
     isText: false,
+    maxLength: 10,
+    required: false,
   },
   // {
   //   id: 'price',
@@ -54,7 +64,11 @@ const Create = ({ authUser }) => {
     <AppWithAuthorization>
       <div className="container mx-auto h-full flex justify-center items-center mt-8">
         <div className="w-full max-w-xl">
-          <form id="new-daiko-form" className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <form
+            id="new-daiko-form"
+            className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+            onSubmit={e => create(e, authUser)}
+          >
             {formFields.map((field, key) =>
               field.isText ? (
                 <div className="mb-6" key={key}>
@@ -62,13 +76,18 @@ const Create = ({ authUser }) => {
                     className="block text-gray-700 text-sm font-bold mb-2"
                     htmlFor={field.id}
                   >
-                    {field.text}
+                    {field.text}{field.required ? '(必須)' : '(任意)'}{' '}
+                    <span className="text-sm text-gray-400">
+                      * {field.maxLength}文字以下
+                    </span>
                   </label>
                   <textarea
                     // border-red-500
                     className="h-40 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                     id={field.id}
                     placeholder={field.placeholder}
+                    maxLength={field.maxLength}
+                    required={field.required}
                   />
                   {/*<p className="text-red-500 text-xs italic">*/}
                   {/*  Please choose a password.*/}
@@ -80,23 +99,31 @@ const Create = ({ authUser }) => {
                     className="block text-gray-700 text-sm font-bold mb-2"
                     htmlFor={field.id}
                   >
-                    {field.text}
+                    {field.text}{field.required ? '(必須)' : '(任意)'}{' '}
+                    <span className="text-sm text-gray-400">
+                      * {field.maxLength}文字以下
+                    </span>
                   </label>
                   <input
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id={field.id}
                     type="text"
                     placeholder={field.placeholder}
+                    maxLength={field.maxLength}
+                    required={field.required}
                   />
                 </div>
               )
             )}
-            <p className="text-sm text-gray-400 mb-5">* 作成することにより、<Link href={Routes.TERMS_OF_SERVICE}>「利用規約」</Link>に同意したとみなされます。</p>
+            <p className="text-sm text-gray-400 mb-5">
+              * 作成することにより、
+              <Link href={Routes.TERMS_OF_SERVICE}>「利用規約」</Link>
+              に同意したとみなされます。
+            </p>
             <div className="flex items-center justify-between">
               <button
                 className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="button"
-                onClick={e => create(authUser)}
+                type="submit"
               >
                 作成する
               </button>

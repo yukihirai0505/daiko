@@ -41,7 +41,7 @@ const DaikoDetail = props => {
 
                   <span className="text-gray-700">{daiko.body}</span>
                   <br />
-                  <span className="text-gray-700">場所: {daiko.place}</span>
+                  {daiko.place && <span className="text-gray-700">場所: {daiko.place}</span>}
 
                   <div className="mt-8 mb-3">
                     <a
